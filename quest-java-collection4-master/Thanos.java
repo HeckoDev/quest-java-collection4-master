@@ -1,5 +1,4 @@
-import java.util.Comparator;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Thanos {
 
@@ -30,7 +29,7 @@ public class Thanos {
                 return orig.getName().compareTo(compare.getName());
             }
         };
-        TreeMap<Hero, Flower> party = new TreeMap<>();
+        Map<Hero, Flower> party = new TreeMap<>(comparator);
 
         party.put(hulk, rose);
         party.put(thor, rose);
@@ -41,7 +40,7 @@ public class Thanos {
         party.put(blackWidow, violet);
 
         // TODO 2 : Print if `begonia` is contained in the TreeMap
-        System.out.println(party.containsKey(begonia) ? "true" : "false");
+        System.out.println(party.containsValue("begonia"));
 
         // TODO 3 : For each hero, alphabetically, print the corresponding flower
         for (Hero hero : party.keySet()) {
@@ -49,4 +48,3 @@ public class Thanos {
             System.out.println(hero.getName() + ": " + flower.getName());
         }
     }
-}
